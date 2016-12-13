@@ -12,12 +12,12 @@ gulp.task('scripts', function() {
 		.pipe(plumber())
 		.pipe(concat('scripts.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('js/'));
+		.pipe(gulp.dest('dist/js/'));
 });
 
 // Styles Task
 gulp.task('styles', function() {
-	return gulp.src('src/scss/main.scss')
+	return gulp.src('src/scss/style.scss')
 		.pipe(plumber())
 		.pipe(sass({
 			outputStyle: 'compressed'
