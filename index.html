@@ -21,12 +21,43 @@
   <![endif]-->
 
 
-  <p>Test</p>
+  <form class="secretSantaForm">
 
+	  <div id="sections">
+	    <div class="section">
+	      <fieldset>
+	        <legend>User</legend>
+
+	        <p>
+	            <label for="name0">Name:</label>
+	            <input name="name0" id="name0" value="" type="text" />
+	        </p>
+
+	        <p>
+	            <label for="mail0">Email:</label>
+	            <input name="mail0" id="mail0" value="" type="email" />
+	        </p>
+
+	        <p><a href="#" class='remove'>Remove Person</a></p>
+
+	      </fieldset>
+	    </div>
+	  </div>
+
+	  <p><a href="#" class='addsection'>Add Person</a></p>
+
+	  <button class="" type="submit">Pair up!</button>
+
+  </form>
+
+  <div class="results">
+	  <h2 class="results__heading">Form Data</h2>
+	  <pre class="results__display-wrapper"><code class="results__display"></code></pre>
+	</div>
 
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script type="dist/js/scripts.js"></script>
+  <script src="dist/js/scripts.js"></script>
 
   </body>
 
