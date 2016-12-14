@@ -27,7 +27,7 @@ function handleFormSubmit(event) {
 	    // var inputType = this.tagName.toUpperCase() === "INPUT" && this.type.toUpperCase();
 	    
 	    if (this.name.slice(0,4) === "name") {
-	    	data[this.value] = [$(this).val(), $(this).next().next().next().next().val()]
+	    	data[this.value] = [$(this).val(), $(this).next().val()]
 	    }
 	    
 	});
@@ -37,6 +37,9 @@ function handleFormSubmit(event) {
 	  "tom": ["tom", "tom@test.com"],
 	  "peter": ["peter", "peter@test.com"],
   };*/
+
+  var objSize = Object.keys(data).length;
+  console.log(objSize);
 
   
   // Create array with names of people participating in Secret Santa
@@ -85,11 +88,30 @@ function handleFormSubmit(event) {
 	 * data[y][1] = email of secret santa
 	 * data[y][2] = name of the person receiving gift
 	 */
+
+	$(form).find(".submitBtn").text("Pairing...");
+	var successArr = [];
+	var z = 0;
   for (y in data) {
   	emailjs.send("default_service","secret_santa",{
+		  santa: data[y][0],
 		  email: data[y][1], 
 		  giftie: data[y][2]
+		}).then(function() {
+			$(form).find(".submitBtn").text("Pair up!")
+		}, function(err) {
+			alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+			$(form).find(".submitBtn").text("Pair up!")
 		});
+		successArr.push(" " + data[y][0]);
+		z++;
+		if (z === objSize) {
+			var resultsContainer = document.getElementsByClassName('results')[0];
+			var dataContainer = document.getElementsByClassName('results__display')[0];
+			resultsContainer.style.display = "block";
+		  dataContainer.textContent = successArr;
+		  console.log(successArr);
+		}
   }
   
 };
