@@ -85,15 +85,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ====================================================
 	 Form Styles
 	 ==================================================== */
-label {
-	display: inline-block;
-	width: 15%;
-}
-
-input {
-	width: 70%;
-	float: right;
-}
 
 .secretSantaForm {
 	input[type="text"],
@@ -116,6 +107,7 @@ input {
     width: 100%;
     padding: 3px;
     border: none;
+    border-radius: 0;
     border-bottom: 1px solid $fontColor;
     background: transparent;
     margin-bottom: 10px;
@@ -130,8 +122,6 @@ input {
 	fieldset {
 		border: 0;
 		border-radius: 5px;
-		// border-top-right-radius: 5px;
-		// border-bottom-right-radius: 5px;
 		border-left: solid 5px $fontColor;
 		background-color: rgba(255, 255, 255, 0.1);
 		margin-bottom: 20px;
@@ -147,13 +137,12 @@ input {
 			width: 100%;
 			display: block;
 			box-sizing: border-box;
-			margin: 55px 0 5px;
+			margin: 20px 0 5px;
 		}
 	}
 }
 
 .buttonContainer {
-	padding: 15px 0 0;
 	text-align: center;
 }
 
@@ -174,7 +163,7 @@ input {
     padding: 11px 29px 10px;
     background-color: $secondaryColor;
     border-color: $secondaryDarker;	
-    margin: 0 10px;
+    margin: 10px;
     font-size: 1.2em;
     font-family: $headingsFont;
 
@@ -185,8 +174,23 @@ input {
 }
 
 
+/* ====================================================
+	 Results Styles
+	 ==================================================== */
+.results {
+	display: none;
+	margin-top: 20px;
+	border-radius: 5px;
+	border-left: solid 5px $fontColor;
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 20px 10px;
 
-
-
+	h3 {
+		margin: 0 0 10px;
+	}
+	p {
+		margin: 10px 0 0;
+	}
+}
 
 
