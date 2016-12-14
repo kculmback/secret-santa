@@ -19,8 +19,8 @@ function handleFormSubmit(event) {
   event.preventDefault();
   
   // Create object with names and emails of people participating
-  // var data = {};
-  /*$(form).find("input").each(function() {
+  var data = {};
+  $(form).find("input").each(function() {
 	    // The selector will match buttons; if you want to filter
 	    // them out, check `this.tagName` and `this.type`; see
 	    // below
@@ -30,13 +30,13 @@ function handleFormSubmit(event) {
 	    	data[this.value] = [$(this).val(), $(this).next().next().next().next().val()]
 	    }
 	    
-	});*/
-  var data = {
+	});
+  /*var data = {
   	"kasey": ["kasey", "crazyrawkr@gmail.com"],
 	  "jason": ["jason", "jason@test.com"],
 	  "tom": ["tom", "tom@test.com"],
 	  "peter": ["peter", "peter@test.com"],
-  };
+  };*/
 
   
   // Create array with names of people participating in Secret Santa
@@ -92,14 +92,6 @@ function handleFormSubmit(event) {
 		});
   }
   
-
-
-	// Demo only: print the form data onscreen as a formatted JSON object.
-  var dataContainer = document.getElementsByClassName('results__display')[0];
-  
-  // Use `JSON.stringify()` to make the output valid, human-readable JSON.
-  dataContainer.textContent = JSON.stringify(data, null, "  ");
-
 };
 
 var form = document.getElementsByClassName('secretSantaForm')[0];
