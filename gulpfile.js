@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 // Scripts Task
 gulp.task('scripts', function() {
-	return gulp.src('js/custom/*.js')
+	return gulp.src('src/js/*.js')
 		.pipe(plumber())
 		.pipe(concat('scripts.js'))
 		.pipe(uglify())
@@ -22,7 +22,7 @@ gulp.task('styles', function() {
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
-		.pipe(gulp.dest('dist/css'));
+		.pipe(gulp.dest('dist/css/'));
 });
 
 
