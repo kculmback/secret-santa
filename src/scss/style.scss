@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
 	max-width: 500px;
-	margin: 50px auto 0;
+	margin: 80px auto 0;
 	padding: 30px;
 	border-radius: 15px;
 	background-color: $primaryColor;
@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 	-moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.7);
 	box-shadow: 0px 2px 5px rgba(0,0,0,0.7);
 	z-index: 10;
+	position: relative;
 }
 
 /* customizable snowflake styling */
@@ -145,6 +146,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.santahat {
+	width: 150px;
+	top: -85px;
+	right: -25px;
+	transform: rotate(25deg);
+	position: absolute;
+}
+
+@media (min-width: 780px) {
+	.santahat {
+		width: 220px;
+		top: -75px;
+		left: -105px;
+		transform: rotate(-20deg);
+	}
+}
+
+
 /* ====================================================
 	 Instructions Styles
 	 ==================================================== */
@@ -152,6 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	h1 {
 		margin-top: 0;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 	}
 }
 
