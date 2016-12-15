@@ -5,21 +5,21 @@
  */
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+	return array;
 };
 
 /**
@@ -86,10 +86,10 @@ function handleFormSubmit(event) {
 
   for (y in data) {
   	emailjs.send("default_service","secret_santa",{
-		  santa: data[y][0],
-		  email: data[y][1], 
-		  giftie: data[y][2]
-		})
+  		santa: data[y][0],
+  		email: data[y][1],
+  		giftie: data[y][2]
+  	})
 		// After sending email perform this function if succeeds
 		.then(function() {
 			// Originally tried to push only the successful names to the succerArr using:
@@ -111,7 +111,7 @@ function handleFormSubmit(event) {
 			// Show the names from successArr and change the submit button back to normal
 			$(form).find(".results").css("display", "block");
 			$(form).find(".results__display").text(successArr);
-		  $(form).find(".submitBtn").text("Pair up!")
+			$(form).find(".submitBtn").text("Pair up!")
 		}
   }
   
