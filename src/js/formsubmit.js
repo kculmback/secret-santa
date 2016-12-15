@@ -94,7 +94,7 @@ function handleFormSubmit(event) {
 		.then(function() {
 			// Originally tried to push only the successful names to the succerArr using:
 			// successArr.push(" " + data[y][0]);
-			// However, this wouldn't work. Currenlt do so below.
+			// However, this wouldn't work. Currently doing so below.
 		}, 
 		// If there is an error, alert it to user
 		function(err) {
