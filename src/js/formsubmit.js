@@ -102,6 +102,7 @@ function handleFormSubmit(event) {
 		});
 		// Push names of secret santas to successArr
 		// Later on will display these names
+		// Need to fix: will still push failed names to array
 		successArr.push(" " + data[y][0]);
 		// Increment counter
 		z++;
