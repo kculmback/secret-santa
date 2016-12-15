@@ -276,13 +276,23 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 5px;
 	border-left: solid 5px $fontColor;
 	background-color: rgba(255, 255, 255, 0.1);
-	padding: 20px 10px;
+	padding: 20px 10px 10px;
 
 	h3 {
 		margin: 0 0 10px;
 	}
 	p {
 		margin: 10px 0 0;
+	}
+
+	.button {
+		padding: 11px 29px 10px;
+		font-size: 1em;
+		margin-top: 5px;
+		width: 100%;
+		display: block;
+		box-sizing: border-box;
+		margin: 20px 0 5px;
 	}
 }
 
