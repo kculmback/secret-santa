@@ -1,5 +1,5 @@
 /**
- * Function that will randomly shuffle an array
+ * Function that will randomly shuffle an array. 
  * Fisher-Yates (aka Knuth) Shuffle
  * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
  */
@@ -42,12 +42,6 @@ function handleFormSubmit(event) {
 	    }
 	    
 	});
-  /*var data = {
-  	"kasey": ["kasey", "crazyrawkr@gmail.com"],
-	  "jason": ["jason", "jason@test.com"],
-	  "tom": ["tom", "tom@test.com"],
-	  "peter": ["peter", "peter@test.com"],
-  };*/
 
   // Capture size of data object
   var objSize = Object.keys(data).length;
@@ -113,15 +107,18 @@ function handleFormSubmit(event) {
 		z++;
 		// Call back to perform once program is at end of the loop
 		if (z === objSize) {
-			var resultsContainer = document.getElementsByClassName('results')[0];
-			var dataContainer = document.getElementsByClassName('results__display')[0];
-			resultsContainer.style.display = "block";
-		  dataContainer.textContent = successArr;
+			// Show the names from successArr and change the submit button back to normal
+			$(form).find(".results").css("display", "block");
+			$(form).find(".results__display").text(successArr);
 		  $(form).find(".submitBtn").text("Pair up!")
 		}
   }
   
 };
 
+// Find the Secret Santa form in the dom and assign it to form variable
 var form = document.getElementsByClassName('secretSantaForm')[0];
+
+// When the submit button is clicked for our form fire the function that
+// assigns secret santas and sends emails
 form.addEventListener('submit', handleFormSubmit);
