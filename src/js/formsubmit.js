@@ -28,31 +28,29 @@ function shuffle(array) {
  * @return {void}
  */
 function handleFormSubmit(event) {
-  
-  // Stop the form from submitting since we’re handling that with AJAX.
-  event.preventDefault();
-  
-  // Create object with names and emails of people participating
-  var data = {};
-  $(form).find("input").each(function() {
-	    // Check to see if input is a name or an email
-	    // Only fire if working with a name
-	    if (this.name.slice(0,4) === "name") {
-	    	data[this.value] = [$(this).val(), $(this).next().val()]
-	    }
-	    
+
+	// Stop the form from submitting since we’re handling that with AJAX.
+	event.preventDefault();
+
+	// Create object with names and emails of people participating
+	var data = {};
+	$(form).find("input").each(function() {
+		// Check to see if input is a name or an email
+		// Only fire if working with a name
+		if (this.name.slice(0,4) === "name") {
+			data[this.value] = [$(this).val(), $(this).next().val()]
+		}
 	});
 
-  // Capture length of data object
-  var objSize = Object.keys(data).length;
-  
-  // Create array with names of people participating in Secret Santa
-  // This will make it easy to randomly assign people to one another
-  var namesArr = [];
-  for ( x in data ) {
-  	namesArr.push(x);
-  }
+	// Capture length of data object
+	var objSize = Object.keys(data).length;
 
+	// Create array with names of people participating in Secret Santa
+	// This will make it easy to randomly assign people to one another
+	var namesArr = [];
+	for ( x in data ) {
+		namesArr.push(x);
+	}
 	// Call the shuffle function on namesArr
 	namesArr = shuffle(namesArr);
 
@@ -83,13 +81,12 @@ function handleFormSubmit(event) {
 	// Initialize variables to be used in for...in loop
 	var successArr = [];
 	var z = 0;
-
-  for (y in data) {
-  	emailjs.send("default_service","secret_santa",{
-  		santa: data[y][0],
-  		email: data[y][1],
-  		giftie: data[y][2]
-  	})
+	for (y in data) {
+		emailjs.send("default_service","secret_santa",{
+			santa: data[y][0],
+			email: data[y][1],
+			giftie: data[y][2]
+		})
 		// After sending email perform this function if succeeds
 		.then(function() {
 			// Originally tried to push only the successful names to the succerArr using:
@@ -113,7 +110,7 @@ function handleFormSubmit(event) {
 			$(form).find(".results__display").text(successArr);
 			$(form).find(".submitBtn").text("Pair up!")
 		}
-  }
+	}
   
 };
 
