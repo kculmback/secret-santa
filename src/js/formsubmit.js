@@ -43,7 +43,7 @@ function handleFormSubmit(event) {
 	    
 	});
 
-  // Capture size of data object
+  // Capture length of data object
   var objSize = Object.keys(data).length;
   
   // Create array with names of people participating in Secret Santa
