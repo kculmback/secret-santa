@@ -22,6 +22,7 @@ function shuffle(array) {
 	return array;
 };
 
+
 /**
  * A handler function to prevent default submission and run our custom script.
  * @param  {Event} event  the submit event triggered by the user
@@ -34,7 +35,7 @@ function handleFormSubmit(event) {
 
 	// Create object with names and emails of people participating
 	var data = {};
-	$(form).find("input").each(function() {
+	$(secretSantaForm).find("input").each(function() {
 		// Check to see if input is a name or an email
 		// Only fire if working with a name
 		if (this.name.slice(0,4) === "name") {
@@ -42,8 +43,10 @@ function handleFormSubmit(event) {
 		}
 	});
 
+
 	// Capture length of data object
 	var objSize = Object.keys(data).length;
+
 
 	// Create array with names of people participating in Secret Santa
 	// This will make it easy to randomly assign people to one another
@@ -76,7 +79,7 @@ function handleFormSubmit(event) {
 	 */
 
 	// Change text of submit button while function runs
-	$(form).find(".submitBtn").text("Pairing...");
+	$(secretSantaForm).find(".submitBtn").text("Pairing...");
 
 	// Initialize variables to be used in for...in loop
 	var successArr = [];
@@ -106,17 +109,17 @@ function handleFormSubmit(event) {
 		// Call back to perform once program is at end of the loop
 		if (z === objSize) {
 			// Show the names from successArr and change the submit button back to normal
-			$(form).find(".results").css("display", "block");
-			$(form).find(".results__display").text(successArr);
-			$(form).find(".submitBtn").text("Pair up!")
+			$(secretSantaForm).find(".results").css("display", "block");
+			$(secretSantaForm).find(".results__display").text(successArr);
+			$(secretSantaForm).find(".submitBtn").text("Pair up!");
 		}
 	}
   
 };
 
 // Find the Secret Santa form in the dom and assign it to form variable
-var form = document.getElementsByClassName('secretSantaForm')[0];
+var secretSantaForm = document.getElementsByClassName('secretSantaForm')[0];
 
 // When the submit button is clicked for our form fire the function that
 // assigns secret santas and sends emails
-form.addEventListener('submit', handleFormSubmit);
+secretSantaForm.addEventListener('submit', handleFormSubmit);
