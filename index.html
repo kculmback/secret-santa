@@ -74,8 +74,8 @@
 		      <fieldset>
 		        <h3>Participant</h3>
 
-            <input name="name0" id="name0" value="" type="text" placeholder="Full Name" required />
-            <input name="mail0" id="mail0" value="" type="email" placeholder="Email" required />
+            <input class="nameInput" name="name0" id="name0" type="text" placeholder="Name"  />
+            <input class="emailInput" name="email0" id="email0" type="email" placeholder="Email"  />
 						
 						<div class="buttonContainer">
 		        	<a href="#" class="remove button">Remove Participant</a>
@@ -91,9 +91,9 @@
 		  </div>
 
 		  <div class="results">
-			  <h3>Success!</h3>
-			  <p>Emails sent to:</p>
-			  <p class="results__display"></p>
+			  <h3>Results</h3>
+			  <p>Participants that emails were successfully sent to will be displayed here in a few moments.</p>
+			  <div class="results-display"></div>
 			  <div class="buttonContainer">
         	<a href="#" class="button" onClick="window.location.reload()">Reset Form</a>
         </div>
