@@ -1,2 +1,5 @@
 node_modules
 src/js/activate.js
+*.sublime-project
+
+*.sublime-workspace
