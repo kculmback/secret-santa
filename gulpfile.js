@@ -30,7 +30,7 @@ gulp.task('styles', function() {
 gulp.task('browserRefresh', ['styles', 'scripts'], browserSync.reload);
 
 
-//Watch Task
+// Watch Task
 gulp.task('watch', function() {
 	browserSync({
 		server: {
@@ -43,5 +43,5 @@ gulp.task('watch', function() {
 });
 
 
-//Default Task
+// Default Task
 gulp.task('default', ['scripts', 'styles']);
