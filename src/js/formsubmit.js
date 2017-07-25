@@ -12,11 +12,6 @@ function secretSantaFormSubmit(event) {
 	// Create an array for each participant within the participants array
 	// Ends up with a 2 dimensional array
 	$(secretSantaForm).find(".section").each(function() {
-		// var participant = [
-		// 	$(this).find(".nameInput").val(),
-		// 	$(this).find(".emailInput").val()
-		// ];
-
 		var participant = {
 			name: $(this).find(".nameInput").val(),
 			email: $(this).find(".emailInput").val()
@@ -28,7 +23,7 @@ function secretSantaFormSubmit(event) {
 
 	participants.forEach(matchParticipants);
 
-	participants.forEach(emailParticipants); 
+	participants.forEach(emailParticipants);
 };
 
 
@@ -95,5 +90,3 @@ var submitBtn = document.getElementsByClassName('submitBtn')[0];
 
 // Trigger secretSantaFormSubmit function when form is submitted
 secretSantaForm.addEventListener('submit', secretSantaFormSubmit);
-
-
