@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/kculmback/secret-santa#readme",
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
     "bower": "^1.8.0",
     "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.0.0",
     "gulp-uglify": "^2.0.0"
   }

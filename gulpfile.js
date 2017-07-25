@@ -1,9 +1,11 @@
-var gulp = require('gulp'),
-	uglify = require('gulp-uglify'),
-	sass = require('gulp-sass'),
-	plumber = require('gulp-plumber'),
-	browserSync = require('browser-sync');
-	concat = require('gulp-concat');
+var gulp = require('gulp');
+var	uglify = require('gulp-uglify');
+var	sass = require('gulp-sass');
+var	plumber = require('gulp-plumber');
+var	browserSync = require('browser-sync');
+var	concat = require('gulp-concat');
+var autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
 
 
 // Scripts Task
@@ -22,6 +24,14 @@ gulp.task('styles', function() {
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
+		.pipe(postcss([autoprefixer({
+			browsers: [
+				'last 2 versions',
+				'ie >= 9',
+				'Android >= 2.3',
+				'ios >= 7'
+			]
+		})]))
 		.pipe(gulp.dest('dist/css/'));
 });
 

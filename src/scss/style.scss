@@ -44,25 +44,6 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 1px #000;
 }
 
-@-webkit-keyframes snowflakes-fall {
-	0% {top:-10%;}
-	100% {top:100%;}
-}
-@-webkit-keyframes snowflakes-shake {
-	0% {
-		-webkit-transform:translateX(0px);
-		transform:translateX(0px)
-	}
-	50% {
-		-webkit-transform:translateX(80px);
-		transform:translateX(80px)
-	}
-	100% {
-		-webkit-transform:translateX(0px);
-		transform:translateX(0px)
-	}
-}
-
 @keyframes snowflakes-fall {
 	0% {top:-10%}
 	100% {top:100%}
@@ -77,72 +58,51 @@ h1, h2, h3, h4, h5, h6 {
 	position:fixed;
 	top:-10%;
 	z-index:-1;
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
 	user-select:none;
 	cursor:default;
-	-webkit-animation-name:snowflakes-fall,snowflakes-shake;
-	-webkit-animation-duration:10s,3s;
-	-webkit-animation-timing-function:linear,ease-in-out;
-	-webkit-animation-iteration-count:infinite,infinite;
-	-webkit-animation-play-state:running,running;
-	animation-name:snowflakes-fall,snowflakes-shake;
-	animation-duration:10s,3s;
-	animation-timing-function:linear,ease-in-out;
-	animation-iteration-count:infinite,infinite;
-	animation-play-state:running,running
+	animation:
+		snowflakes-fall 10000ms linear infinite running,
+		snowflakes-shake 3000ms ease-in-out infinite running;
 }
 .snowflake:nth-of-type(0) {
-	left:1%;
-	-webkit-animation-delay:0s,0s;
-	animation-delay:0s,0s;
-	// background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png');
+	left: 1%;
+	animation-delay: 0ms, 0ms;
 }
 .snowflake:nth-of-type(1) {
-	left:10%;
-	-webkit-animation-delay:1s,1s;
-	animation-delay:1s,1s;
+	left: 10%;
+	animation-delay: 1000ms, 1000ms;
 }
 .snowflake:nth-of-type(2) {
-	left:20%;
-	-webkit-animation-delay:6s,.5s;
-	animation-delay:6s,.5s;
+	left: 20%;
+	animation-delay: 6000ms, 500ms;
 }
 .snowflake:nth-of-type(3) {
-	left:30%;
-	-webkit-animation-delay:4s,2s;
-	animation-delay:4s,2s;
-} 
+	left: 30%;
+	animation-delay: 4000ms, 2000ms;
+}
 .snowflake:nth-of-type(4) {
-	left:40%;
-	-webkit-animation-delay:2s,2s;
-	animation-delay:2s,2s;
+	left: 40%;
+	animation-delay: 2000ms, 2000ms;
 }
 .snowflake:nth-of-type(5) {
-	left:50%;
-	-webkit-animation-delay:8s,3s;
-	animation-delay:8s,3s;
+	left: 50%;
+	animation-delay: 8000ms, 3000ms;
 }
 .snowflake:nth-of-type(6) {
-	left:60%;
-	-webkit-animation-delay:6s,2s;
-	animation-delay:6s,2s;
+	left: 60%;
+	animation-delay: 6000ms, 2000ms;
 }
 .snowflake:nth-of-type(7) {
-	left:70%;
-	-webkit-animation-delay:2.5s,1s;
-	animation-delay:2.5s,1s;
+	left: 70%;
+	animation-delay: 2500ms, 1000ms;
 }
 .snowflake:nth-of-type(8) {
-	left:80%;
-	-webkit-animation-delay:1s,0s;
-	animation-delay:1s,0s;
+	left: 80%;
+	animation-delay: 1000ms, 0ms;
 }
 .snowflake:nth-of-type(9) {
-	left:90%;
-	-webkit-animation-delay:3s,1.5s;
-	animation-delay:3s,1.5s;
+	left: 90%;
+	animation-delay: 3000ms, 1500ms;
 }
 
 
@@ -190,11 +150,9 @@ h1, h2, h3, h4, h5, h6 {
 	input[type="url"],
 	input[type="password"],
 	textarea,
-	select 
+	select
 	{
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     outline: none;
     display: block;
     width: 100%;
@@ -243,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
     border-style: solid;
     border-width: 0px 0px 3px;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    color: $fontColor;	   
+    color: $fontColor;
     border-radius: 6px;
     cursor: pointer;
     display: inline-block;
@@ -252,10 +210,10 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     text-overflow: ellipsis;
     transition: all 200ms ease-in-out 0s;
-    white-space: nowrap;	
+    white-space: nowrap;
     padding: 11px 29px 10px;
     background-color: $secondaryColor;
-    border-color: $secondaryDarker;	
+    border-color: $secondaryDarker;
     margin: 10px;
     font-size: 1.2em;
     font-family: $headingsFont;
