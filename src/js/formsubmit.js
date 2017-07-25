@@ -23,17 +23,17 @@ function secretSantaFormSubmit(event) {
 		};
 		participants.push(participant);
 	});
-	
+
 	participants = shuffle(participants);
 
 	participants.forEach(matchParticipants);
 
-	participants.forEach(emailParticipants);  
+	participants.forEach(emailParticipants); 
 };
 
 
 /**
- * Function that will randomly shuffle an array. 
+ * Function that will randomly shuffle an array.
  * Fisher-Yates (aka Knuth) Shuffle
  * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
  */
@@ -55,7 +55,7 @@ function shuffle(array) {
 	return array;
 };
 
-// Function to match participants with recipients 
+// Function to match participants with recipients
 // Matches current participant in array with the next participant in array
 // Unless they are the last, in which case matches them with the first participant in array
 function matchParticipants (participant, index, array) {
@@ -77,7 +77,7 @@ function emailParticipants (participant, index, array) {
 			if (index === array.length - 1) {
 				$(submitBtn).text("Pair up!");
 			}
-		}, 
+		},
 		// If there is an error, alert it to user
 		function(err) {
 			$(resultsDisplay).append("<p>Uh oh! Unable to send email to: " + participant.name + "<br>Error: " + JSON.stringify(err) + "</p>");
