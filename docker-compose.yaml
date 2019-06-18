@@ -1,0 +1,46 @@
+version: '3.4'
+
+x-app: &default-app
+  image: kasey/simple-secret-santa
+  tty: true
+  volumes:
+    - .:/usr/src/app
+    - secret-santa:/usr/src/app/node_modules
+  labels:
+    - traefik.port=5000
+    - traefik.docker.network=proxy
+  environment:
+    - NODE_ENV=development
+  networks:
+    - local
+    - proxy
+
+# Setup Services
+services:
+  backend:
+    <<: *default-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run serve:backend
+    labels:
+      - traefik.proxy.frontend.rule=Host:app-secret-santa.${DEV_DOMAIN}
+
+  frontend:
+    <<: *default-app
+    command: npm run serve:frontend
+    labels:
+      - traefik.proxy.frontend.rule=Host:secret-santa.${DEV_DOMAIN}
+
+# Create Persistance Volume
+volumes:
+  secret-santa:
+
+# Setup Networks
+# Local for internal communications
+# Proxy for Traefik communications
+networks:
+  local:
+    external: false
+  proxy:
+    external: true

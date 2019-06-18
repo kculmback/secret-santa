@@ -1,18 +1,18 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-const bodyParser = require('body-parser')
-const csrf = require('csurf')
-const cookieParser = require('cookie-parser')
-const helmet = require('helmet')
 const api = require('./api')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const csrf = require('csurf')
+const express = require('express')
+const history = require('connect-history-api-fallback')
+const { resolve } = require('path')
 
 const csrfProtection = csrf({ cookie: true })
 
 module.exports = {
-  csrfProtection,
-  app: app => {
-    app.use(helmet())
+  api: app => {
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
     app.use(cookieParser())
@@ -22,6 +22,17 @@ module.exports = {
       next()
     })
     app.use('/api', api)
+  },
+  errors: app => {
     require('./errors')(app)
+  },
+  security: app => {
+    app.use(require('helmet')())
+  },
+  static: app => {
+    const publicPath = resolve(__dirname, '../static')
+    const staticConf = { maxAge: '1y', etag: false }
+    app.use(express.static(publicPath, staticConf))
+    app.use('/', history())
   },
 }

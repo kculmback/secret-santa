@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "nodemon --exec 'vue-cli-service serve frontend/main.js'",
-    "build": "vue-cli-service build",
+    "serve:frontend": "nodemon --exec './node_modules/.bin/vue-cli-service serve ./frontend/main.js'",
+    "serve:backend": "node ./backend/app.js",
+    "watch:backend": "npm run build && nodemon ./backend/app.js",
+    "build": "vue-cli-service build frontend/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "cookie-parser": "^1.4.4",
     "core-js": "^2.6.5",
     "csurf": "^1.10.0",
     "dotenv": "^8.0.0",
@@ -27,11 +31,12 @@
     "@vue/cli-service": "^3.8.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
-    "cookie-parser": "^1.4.4",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "nodemon": "^1.19.1",
     "prettier-eslint": "^9.0.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
