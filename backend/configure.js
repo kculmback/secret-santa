@@ -1,6 +1,10 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const bodyParser = require('body-parser')
 const csrf = require('csurf')
 const cookieParser = require('cookie-parser')
+const helmet = require('helmet')
 const api = require('./api')
 
 const csrfProtection = csrf({ cookie: true })
@@ -8,6 +12,7 @@ const csrfProtection = csrf({ cookie: true })
 module.exports = {
   csrfProtection,
   app: app => {
+    app.use(helmet())
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
     app.use(cookieParser())
@@ -17,5 +22,6 @@ module.exports = {
       next()
     })
     app.use('/api', api)
+    require('./errors')(app)
   },
 }
