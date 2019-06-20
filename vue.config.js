@@ -1,5 +1,4 @@
 const path = require('path')
-const { api, errors } = require('./backend/configure')
 
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -17,6 +16,8 @@ module.exports = {
   },
   devServer: {
     before: app => {
+      const { api, errors } = require('./backend/configure')
+      // logging(app)
       api(app)
       errors(app)
     },
