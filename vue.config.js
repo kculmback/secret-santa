@@ -23,7 +23,7 @@ module.exports = {
     },
     port: 5000,
     // public: 'secret-santa.kaseydev.14four.com',
-    // disableHostCheck: true,
-    allowedHosts: ['.14four.com', 'localhost'],
+    disableHostCheck: true,
+    // allowedHosts: ['.14four.com', 'localhost'],
   },
 }
